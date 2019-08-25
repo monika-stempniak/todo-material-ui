@@ -6,7 +6,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme =>
   createStyles({
     todo: props => ({
-      textDecoration: props.isCompleted ? 'line-through' : 'none',
+      textDecoration: props.completed ? 'line-through' : 'none',
     }),
     checkIcon: {
       color: '#ad8c0e',
@@ -18,16 +18,16 @@ const useStyles = makeStyles(theme =>
 );
 
 const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
-  const { text, isCompleted } = todo;
-  const classes = useStyles({isCompleted});
+  const { title, completed } = todo;
+  const classes = useStyles({completed});
 
   return (
     <ListItem >
       <Typography variant="body1" className={classes.todo}>
-        {text}
+        {title}
       </Typography>
       {
-        isCompleted ? (
+        completed ? (
           <IconButton onClick={() => deleteTodo(index)} className={classes.deleteIcon}>
             <DeleteOutline />
           </IconButton>
