@@ -3,6 +3,7 @@ import { Typography, Grid, List } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 import { Container, TodoForm, Todo } from '../components';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -30,6 +31,7 @@ const Todos = () => {
   ];
 
   const [todos, setTodos] = useState(initialTodos);
+  useDocumentTitle('Todos');
 
   const addTodo = text => {
     const newTodos = [...todos];
