@@ -6,6 +6,13 @@ import { Todos } from '.';
 
 describe('Todos component', () => {
 
+  it("matches snapshot", async () => {
+    const { asFragment } = render(<Todos />);
+
+    await waitForDomChange();
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   test('should render list of todos', async () => {
     const { getByTestId } = render(<Todos />);
   
@@ -22,7 +29,7 @@ describe('Todos component', () => {
     const { getByTestId, debug, getByLabelText, getByText, getAllByTestId } = render(<Todos />);
 
     await waitForDomChange();
-  
+
     const todoInput = getByLabelText('Add todo');
     const todo = 'Learn React';
     fireEvent.change(todoInput, { target: { value: todo } });
@@ -35,6 +42,5 @@ describe('Todos component', () => {
     expect(todoList.children.length).toBe(201);
     expect(getByText(todo)).toBeTruthy();
     expect(getAllByTestId('todo')[0].innerHTML).toContain(todo);
-  })
-})
-
+  });
+});

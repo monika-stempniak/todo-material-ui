@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root makeStyles-root-1 MuiContainer-fixed MuiContainer-maxWidthLg"
+  >
+    <h5
+      class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+      data-testid="about-title"
+    >
+      About
+    </h5>
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nulla expedita eum sequi incidunt vitae quisquam dicta beatae, quas corrupti blanditiis sed excepturi iure sit assumenda. Cupiditate pariatur repellendus veritatis!
+    </p>
+  </div>
+</DocumentFragment>
+`;
