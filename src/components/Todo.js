@@ -28,12 +28,20 @@ const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
       </Typography>
       {
         completed ? (
-          <IconButton onClick={() => deleteTodo(index)} className={classes.deleteIcon}>
+          <IconButton
+            onClick={() => deleteTodo(index)}
+            className={classes.deleteIcon}
+            data-testid="delete"
+          >
             <DeleteOutline />
           </IconButton>
         )
         : (
-          <IconButton onClick={() => completeTodo(index)} className={classes.checkIcon}>
+          <IconButton
+            onClick={() => completeTodo(index)}
+            className={classes.checkIcon}
+            data-testid="complete"
+          >
             <CheckCircleOutline />
           </IconButton>
         )
