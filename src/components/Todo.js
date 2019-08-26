@@ -23,7 +23,7 @@ const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
 
   return (
     <ListItem >
-      <Typography variant="body1" className={classes.todo}>
+      <Typography variant="body1" className={classes.todo} data-testid="todo">
         {title}
       </Typography>
       {

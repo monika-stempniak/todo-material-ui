@@ -45,7 +45,7 @@ const TodoForm = ({ addTodo }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={classes.form}>
+    <form onSubmit={handleSubmit} className={classes.form} >
       <TextField
         id="standard-name"
         label="Add todo"
@@ -54,7 +54,12 @@ const TodoForm = ({ addTodo }) => {
         onChange={e => setValue(e.target.value)}
         margin="normal"
       />
-      <Button variant="contained" className={classes.button} type="submit">
+      <Button
+        variant="contained"
+        className={classes.button}
+        type="submit"
+        data-testid='add-button'
+      >
         Add
       </Button>
     </form>

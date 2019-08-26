@@ -65,9 +65,9 @@ const Todos = () => {
         </Grid>
         {
           isLoading ? (
-            <div>Loading...</div>
+            <div data-testid="todos-loading">Loading...</div>
           ) : (
-            <List className={classes.list}>
+            <List className={classes.list} data-testid="todos-list">
             {
               todos.map((todo, index) => (
                 <Todo
