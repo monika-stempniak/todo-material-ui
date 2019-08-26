@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <Container>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom data-testid="about-title">
         About
       </Typography>
       <Typography variant="body1">

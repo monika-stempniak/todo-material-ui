@@ -9,7 +9,7 @@ const NotFound = () => {
 
   return (
     <Container>
-      <Typography variant="h5">
+      <Typography variant="h5" data-testid="not-found-title">
         Page not found
       </Typography>
     </Container>

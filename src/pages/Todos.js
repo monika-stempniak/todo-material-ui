@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme =>
   }),
 );
 
-whyDidYouRender(React, {
-  titleColor: "green",
-  logOnDifferentValues: true,
-});
+// whyDidYouRender(React, {
+//   titleColor: "green",
+//   logOnDifferentValues: true,
+// });
 
 const Todos = () => {
   useDocumentTitle('Todos');
@@ -58,7 +58,7 @@ const Todos = () => {
     <Container>
       <Grid container direction="column" alignItems="center" justify="center">
         <Grid container direction="column" alignItems="center" justify="center">
-          <Typography variant="h5">
+          <Typography variant="h5" data-testid="todos-title">
             Todos
           </Typography>
           <TodoForm addTodo={addTodo} />
@@ -90,6 +90,6 @@ const Todos = () => {
   )
 }
 
-Todos.whyDidYouRender = true;
+// Todos.whyDidYouRender = true;
 
 export default React.memo(Todos);
