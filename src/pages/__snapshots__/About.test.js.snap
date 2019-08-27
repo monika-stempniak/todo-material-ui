@@ -2,8 +2,51 @@
 
 exports[`About component matches snapshot 1`] = `
 <DocumentFragment>
+  <div>
+    <header
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic makeStyles-root-1 MuiAppBar-colorPrimary"
+    >
+      <div
+        class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthLg"
+      >
+        <ul
+          class="makeStyles-list-2"
+        >
+          <li
+            class="makeStyles-listItem-3"
+          >
+            <a
+              class="makeStyles-link-4"
+              href="/todos"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-h6"
+              >
+                Home
+              </h6>
+            </a>
+          </li>
+          <li
+            class="makeStyles-listItem-3"
+          >
+            <a
+              aria-current="page"
+              class="makeStyles-link-4 makeStyles-activeLink-5"
+              href="/about"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-h6"
+              >
+                About
+              </h6>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
   <div
-    class="MuiContainer-root makeStyles-root-1 MuiContainer-fixed MuiContainer-maxWidthLg"
+    class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthLg"
   >
     <h5
       class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
@@ -12,10 +55,28 @@ exports[`About component matches snapshot 1`] = `
       About
     </h5>
     <p
-      class="MuiTypography-root MuiTypography-body1"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
     >
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nulla expedita eum sequi incidunt vitae quisquam dicta beatae, quas corrupti blanditiis sed excepturi iure sit assumenda. Cupiditate pariatur repellendus veritatis!
     </p>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+      data-testid="additional-text"
+    />
+    <button
+      class="MuiButtonBase-root MuiButton-root makeStyles-button-80 MuiButton-outlined MuiButton-sizeSmall"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Show more
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
   </div>
 </DocumentFragment>
 `;

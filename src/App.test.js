@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import { render, fireEvent } from '@testing-library/react';
+import { waitForDomChange } from '@testing-library/dom';
 
 import { About, NotFound, Todos } from './pages';
 import Context from './store/context';
@@ -49,10 +50,12 @@ describe('Context', () => {
       </App>
     );
 
-    expect(getByTestId('additional-text').innerHTML).toBeFalsy();
+    const additionalText = getByTestId('additional-text');
     const showMoreButton = getByText(/Show more/i);
+    expect(additionalText.innerHTML).toBeFalsy();
+
     fireEvent.click(showMoreButton, { button: 0 });
-    expect(getByTestId('additional-text').innerHTML).toBeTruthy();
+    expect(additionalText.innerHTML).toBeTruthy();
     expect(showMoreButton).not.toBeInTheDocument();
   });
 });
