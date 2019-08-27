@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import { render, fireEvent } from '@testing-library/react';
 
 import { About, NotFound, Todos } from './pages';
+import Context from './store/context';
 import App from './App';
 
 const history = createBrowserHistory();
@@ -35,4 +36,23 @@ describe('App component', () => {
 
       expect(getByTestId('title').innerHTML).toMatch('Page not found');
     });
+});
+
+describe('Context', () => {
+  test('value should showed by child component', () => {
+    history.push('/about');
+    const { getByTestId, getByText } = render(
+      <App>
+        <Context.Provider>
+          <About />
+        </Context.Provider>
+      </App>
+    );
+
+    expect(getByTestId('additional-text').innerHTML).toBeFalsy();
+    const showMoreButton = getByText(/Show more/i);
+    fireEvent.click(showMoreButton, { button: 0 });
+    expect(getByTestId('additional-text').innerHTML).toBeTruthy();
+    expect(showMoreButton).not.toBeInTheDocument();
+  });
 });
