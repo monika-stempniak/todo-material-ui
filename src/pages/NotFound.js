@@ -1,5 +1,4 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 
 import { Container, Title } from '../components';
 import useDocumentTitle from '../hooks/useDocumentTitle';

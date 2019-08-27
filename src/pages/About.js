@@ -1,7 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 
-import { Container, Title } from '../components';
+import { Container, Title, Paragraph } from '../components';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const About = () => {
@@ -10,9 +9,9 @@ const About = () => {
   return (
     <Container>
       <Title>About</Title>
-      <Typography variant="body1">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nulla expedita eum sequi incidunt vitae quisquam dicta beatae, quas corrupti blanditiis sed excepturi iure sit assumenda. Cupiditate pariatur repellendus veritatis!
-      </Typography>
+      </Paragraph>
     </Container>
   );
 }

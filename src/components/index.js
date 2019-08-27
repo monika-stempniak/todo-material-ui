@@ -3,6 +3,7 @@ import Container from './Container';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 import Title from './Title';
+import Paragraph from './Paragraph';
 
 export {
   Header,
@@ -10,4 +11,5 @@ export {
   TodoForm,
   Todo,
   Title,
+  Paragraph,
 }

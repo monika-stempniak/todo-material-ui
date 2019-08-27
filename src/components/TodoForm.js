@@ -25,9 +25,8 @@ const useStyles = makeStyles(theme =>
       border: 0,
       borderRadius: 3,
       boxShadow: '0 3px 5px 2px #D5AC4E',
-      color: 'white',
-      height: 48,
-      padding: '0 30px',
+      color: '#45050C',
+      padding: '10px 40px',
     },
   }),
 );
