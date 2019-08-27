@@ -3,7 +3,7 @@ import { Typography, Grid, List } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 // import whyDidYouRender from "@welldone-software/why-did-you-render";
 
-import { Container, TodoForm, Todo } from '../components';
+import { Container, TodoForm, Todo, Title } from '../components';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useFetchedData from '../hooks/useFetchedData';
 
@@ -58,9 +58,7 @@ const Todos = () => {
     <Container>
       <Grid container direction="column" alignItems="center" justify="center">
         <Grid container direction="column" alignItems="center" justify="center">
-          <Typography variant="h5" data-testid="todos-title">
-            Todos
-          </Typography>
+          <Title>Todos</Title>
           <TodoForm addTodo={addTodo} />
         </Grid>
         {isLoading && <div data-testid="todos-loading">Loading...</div>}

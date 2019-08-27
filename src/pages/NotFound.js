@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-import { Container } from '../components';
+import { Container, Title } from '../components';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const NotFound = () => {
@@ -9,9 +9,7 @@ const NotFound = () => {
 
   return (
     <Container>
-      <Typography variant="h5" data-testid="not-found-title">
-        Page not found
-      </Typography>
+      <Title>Page not found</Title>
     </Container>
   );
 }

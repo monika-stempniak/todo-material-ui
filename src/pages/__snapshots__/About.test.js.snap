@@ -7,7 +7,7 @@ exports[`About component matches snapshot 1`] = `
   >
     <h5
       class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
-      data-testid="about-title"
+      data-testid="title"
     >
       About
     </h5>

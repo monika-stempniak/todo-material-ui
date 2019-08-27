@@ -19,20 +19,20 @@ describe('App component', () => {
     test('should automatically redirect to /todos page', () => {
       const { getByTestId } = render(<App />);
 
-      expect(getByTestId('todos-title').innerHTML).toMatch('Todos');
+      expect(getByTestId('title').innerHTML).toMatch('Todos');
     });
 
     test('should navigate from /todos to /about page', () => {
       const { getByTestId, getByText } = render(<App />);
 
       fireEvent.click(getByText(/about/i), { button: 0 });
-      expect(getByTestId('about-title').innerHTML).toMatch('About');
+      expect(getByTestId('title').innerHTML).toMatch('About');
     });
 
     test('should land on a not found page when route is wrong', () => {
       history.push('/some-route');
       const { getByTestId } = render(<App />);
 
-      expect(getByTestId('not-found-title').innerHTML).toMatch('Page not found');
+      expect(getByTestId('title').innerHTML).toMatch('Page not found');
     });
 });
