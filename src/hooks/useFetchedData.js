@@ -7,14 +7,19 @@ const useFetchedData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    let isSubscribed = true;
     axios
       .get('https://jsonplaceholder.typicode.com/todos')
       .then(response => {
-        dispatch({type: ACTIONS.SUCCESS, payload: response.data});
+        const res = isSubscribed ? dispatch({type: ACTIONS.SUCCESS, payload: response.data}) : null;
+        return res;
       })
       .catch(error => {
-        dispatch({type: ACTIONS.FAILURE, error: error.message});
+        const err = isSubscribed ? dispatch({type: ACTIONS.FAILURE, error: error.message}) : null;
+        return err;
       })
+
+      return () => (isSubscribed = false);
   }, [])
 
   const { data, isLoading, error } = state;
