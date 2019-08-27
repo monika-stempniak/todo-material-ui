@@ -21,8 +21,7 @@ describe('Todo component', () => {
   beforeEach(() => {
     completeTodo = jest.fn();
     deleteTodo = jest.fn();
-  }
-  );
+  });
 
   test('should allow to complete todo', async () => {
     const { getByTestId } = render(
