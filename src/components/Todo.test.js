@@ -1,14 +1,10 @@
 import React from 'react';
 import { render, fireEvent, waitForElement } from '@testing-library/react';
 
+import { todos } from '../lib/todos-mock';
 import { Todo } from '.';
 
-const todo = {
-  userId: 1,
-  id: 1,
-  title: "Learn Gatsby",
-  completed: false
-}
+const todo = todos[0];
 
 const props = {
   index: 1,

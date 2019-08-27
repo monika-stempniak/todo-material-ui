@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Grid, List } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import whyDidYouRender from "@welldone-software/why-did-you-render";
+// import whyDidYouRender from "@welldone-software/why-did-you-render";
 
 import { Container, TodoForm, Todo } from '../components';
 import useDocumentTitle from '../hooks/useDocumentTitle';
