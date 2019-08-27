@@ -63,13 +63,10 @@ const Todos = () => {
           </Typography>
           <TodoForm addTodo={addTodo} />
         </Grid>
-        {
-          isLoading ? (
-            <div data-testid="todos-loading">Loading...</div>
-          ) : (
+        {isLoading && <div data-testid="todos-loading">Loading...</div>}
+        {!isLoading && !error && (
             <List className={classes.list} data-testid="todos-list">
-            {
-              todos.map((todo, index) => (
+            {todos.map((todo, index) => (
                 <Todo
                   key={index}
                   index={index}
@@ -77,14 +74,11 @@ const Todos = () => {
                   completeTodo={completeTodo}
                   deleteTodo={deleteTodo}
                 />
-              ))
-            }
+              ))}
             </List>
           )
         }
-        {
-          error && <div>{error}</div>
-        }
+        {error && <div>{error}</div>}
       </Grid>
     </Container >
   )
