@@ -9,11 +9,11 @@ import { Todos } from '.';
 jest.mock('axios');
 
 describe('Todos component', () => {
-  beforeEach(() => {
-    axios.get.mockResolvedValueOnce({data: todos});
+  beforeEach(async () => {
+    await axios.get.mockResolvedValueOnce({data: todos});
   });
-  afterEach(() => {
-    axios.get.mockReset();
+  afterEach(async () => {
+    await axios.get.mockReset();
   });
 
   it("matches snapshot", async () => {
@@ -58,7 +58,7 @@ describe('Todos component', () => {
 describe('Todos component - error test', () => {
   test('should display an error if request fails', async () => {
     const error = 'Async error';
-    axios.get.mockRejectedValue(new Error(error));
+    await axios.get.mockRejectedValue(new Error(error));
 
     const { container, queryByTestId } = render(<Todos />);
 
@@ -69,5 +69,7 @@ describe('Todos component - error test', () => {
 
     const todoList = document.querySelector('[data-testid="todos-list"]');
     expect(todoList).not.toBeInTheDocument();
+
+    await axios.get.mockReset();
   });
 });
