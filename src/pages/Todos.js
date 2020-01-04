@@ -3,7 +3,7 @@ import { Grid, List, Typography } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 // import whyDidYouRender from "@welldone-software/why-did-you-render";
 
-import { Container, TodoForm, Todo, Title } from "../components";
+import { Container, TodoForm, Todo, Title, Footer } from "../components";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import useFetchedData from "../hooks/useFetchedData";
 
@@ -15,10 +15,7 @@ const useStyles = makeStyles(theme =>
     },
     list: {
       margin: "0 auto",
-      maxWidth: "600px"
-    },
-    error: {
-      color: "red"
+      width: "100%"
     }
   })
 );
@@ -29,33 +26,57 @@ const useStyles = makeStyles(theme =>
 // });
 
 const Todos = () => {
+  const classes = useStyles();
   useDocumentTitle("Todos");
   const [initialTodos, isLoading, error] = useFetchedData();
   const [todos, setTodos] = useState(initialTodos);
+  const [filteredTodos, setFilteredTodos] = useState(initialTodos);
 
   useEffect(() => {
-    setTodos(initialTodos);
+    const todosData =
+      initialTodos.length > 0 ? initialTodos.splice(0, 5) : initialTodos;
+    setTodos(todosData);
+    setFilteredTodos(todosData);
   }, [initialTodos]);
 
   const addTodo = title => {
     const newTodos = [...todos];
     newTodos.splice(0, 0, { title, completed: false });
     setTodos(newTodos);
+    setFilteredTodos(newTodos);
   };
 
   const completeTodo = index => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
     setTodos(newTodos);
+    setFilteredTodos(newTodos);
   };
 
   const deleteTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
+    setFilteredTodos(newTodos);
   };
 
-  const classes = useStyles();
+  const showAllTodos = () => {
+    setFilteredTodos(todos);
+  };
+
+  const showActiveTodos = () => {
+    const activeTodos = todos.filter(todo => !todo.completed);
+    setFilteredTodos(activeTodos);
+  };
+
+  const showCompletedTodos = () => {
+    const completedTodos = todos.filter(todo => todo.completed);
+    setFilteredTodos(completedTodos);
+  };
+
+  const getNumberOfTodosToComplete = () => {
+    return todos.filter(todo => !todo.completed).length;
+  };
 
   return (
     <Container>
@@ -67,7 +88,7 @@ const Todos = () => {
         {isLoading && <div data-testid="todos-loading">Loading...</div>}
         {!isLoading && !error && (
           <List className={classes.list} data-testid="todos-list">
-            {todos.map((todo, index) => (
+            {filteredTodos.map((todo, index) => (
               <Todo
                 key={index}
                 index={index}
@@ -87,6 +108,12 @@ const Todos = () => {
             {error}
           </Typography>
         )}
+        <Footer
+          showAllTodos={showAllTodos}
+          showActiveTodos={showActiveTodos}
+          showCompletedTodos={showCompletedTodos}
+          numberOfTodosToComplete={getNumberOfTodosToComplete()}
+        />
       </Grid>
     </Container>
   );

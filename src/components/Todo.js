@@ -29,7 +29,7 @@ const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
   const classes = useStyles({ completed });
 
   return (
-    <ListItem>
+    <ListItem data-testid={completed ? "completed" : "active"}>
       <Typography
         variant="body1"
         className={classes.todo}
@@ -41,7 +41,7 @@ const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
         <IconButton
           onClick={() => deleteTodo(index)}
           className={classes.deleteIcon}
-          data-testid={`delete-${joinWords(title)}`}
+          data-testid={`completed-${joinWords(title)}`}
         >
           <DeleteOutline />
         </IconButton>
@@ -49,7 +49,7 @@ const Todo = ({ todo, index, completeTodo, deleteTodo }) => {
         <IconButton
           onClick={() => completeTodo(index)}
           className={classes.checkIcon}
-          data-testid={`complete-${joinWords(title)}`}
+          data-testid={`active-${joinWords(title)}`}
         >
           <CheckCircleOutline />
         </IconButton>

@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { useEffect, useReducer } from 'react';
-import * as ACTIONS from '../store/actions';
-import { initialState, reducer } from '../store/reducer';
+import axios from "axios";
+import { useEffect, useReducer } from "react";
+import * as ACTIONS from "../store/actions";
+import { initialState, reducer } from "../store/reducer";
 
 const useFetchedData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -9,22 +9,26 @@ const useFetchedData = () => {
   useEffect(() => {
     let isSubscribed = true;
     axios
-      .get('https://jsonplaceholder.typicode.com/todos')
+      .get("https://jsonplaceholder.typicode.com/todos")
       .then(response => {
-        const res = isSubscribed ? dispatch({type: ACTIONS.SUCCESS, payload: response.data}) : null;
+        const res = isSubscribed
+          ? dispatch({ type: ACTIONS.SUCCESS, payload: response.data })
+          : null;
         return res;
       })
       .catch(error => {
-        const err = isSubscribed ? dispatch({type: ACTIONS.FAILURE, error: error.message}) : null;
+        const err = isSubscribed
+          ? dispatch({ type: ACTIONS.FAILURE, error: error.message })
+          : null;
         return err;
-      })
+      });
 
-      return () => (isSubscribed = false);
-  }, [])
+    return () => (isSubscribed = false);
+  }, []);
 
   const { data, isLoading, error } = state;
 
   return [data, isLoading, error];
-}
+};
 
 export default useFetchedData;

@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme =>
       alignItems: "center",
       justifyContent: "center",
       width: "100%",
-      maxWidth: "600px",
-      padding: theme.spacing(2)
+      padding: theme.spacing(2, 0)
     },
     textField: {
       flex: 1,
