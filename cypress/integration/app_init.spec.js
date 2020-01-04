@@ -2,7 +2,7 @@ describe("App initialization", () => {
   it("Loads todos on page load", () => {
     cy.seedAndVisit();
 
-    cy.get("[data-testid=todos-list] li").should("have.length", 3);
+    cy.get("[data-testid=todos-list] li").should("have.length", 4);
   });
 
   it("Displays an error on failure", () => {
