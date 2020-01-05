@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:lts-alpine
+      - image: circleci/node:10
     steps:
       - checkout
       - restore_cache:
@@ -24,7 +24,7 @@ jobs:
 
   unit_tests:
     docker:
-      - image: circleci/node:lts-alpine
+      - image: circleci/node:10
     steps:
       - checkout
       - run:
@@ -37,7 +37,7 @@ jobs:
 
   e2e_tests:
     docker:
-      - image: circleci/node:lts-alpine
+      - image: circleci/node:10
     steps:
       - checkout
       - run:
