@@ -23,7 +23,7 @@ describe("Todos items", () => {
   });
 
   it("Shows remaining todos in the footer", () => {
-    cy.get("[data-testid=todo-count]").should("contain", 3);
+    cy.get("[data-testid=todo-count]").should("contain", "3 todos left");
   });
 
   it("Removes a todo", () => {
@@ -40,7 +40,7 @@ describe("Todos items", () => {
       .and("not.contain", item);
   });
 
-  it.only("Marks an incomplete item complete", () => {
+  it("Marks an incomplete item complete", () => {
     // cy.fixture("todos").then(todo => {
     //   const target = Cypress._.head(todo);
     //   target.completed = true;
@@ -58,6 +58,6 @@ describe("Todos items", () => {
       .find("[data-completed=completed]")
       .should("exist");
 
-    cy.get("[data-testid=todo-count]").should("contain", 2);
+    cy.get("[data-testid=todo-count]").should("contain", "2 todos left");
   });
 });

@@ -112,7 +112,7 @@ const Todos = () => {
           showAllTodos={showAllTodos}
           showActiveTodos={showActiveTodos}
           showCompletedTodos={showCompletedTodos}
-          numberOfTodosToComplete={getNumberOfTodosToComplete()}
+          remaining={getNumberOfTodosToComplete()}
         />
       </Grid>
     </Container>

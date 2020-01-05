@@ -22,7 +22,7 @@ const Footer = ({
   showAllTodos,
   showActiveTodos,
   showCompletedTodos,
-  numberOfTodosToComplete
+  remaining
 }) => {
   const classes = useStyles();
 
@@ -30,9 +30,8 @@ const Footer = ({
     <footer className={classes.footer}>
       <Grid container className={classes.grid}>
         <Grid item xs={6}>
-          <Typography variant="body1">
-            <span data-testid="todo-count">{numberOfTodosToComplete}</span>{" "}
-            todos left
+          <Typography variant="body1" data-testid="todo-count">
+            {remaining} {remaining === 1 ? "todo" : "todos"} left
           </Typography>
         </Grid>
         <Grid item xs={2}>
