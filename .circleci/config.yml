@@ -8,6 +8,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
+    working_directory: ~/app
     steps:
       - checkout
       - restore_cache:
@@ -16,20 +17,18 @@ jobs:
             - dependency-cache-
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
-            - node_modules
+            - ~/.npm
+            - ~/.cache
 
   unit_tests:
     docker:
       - image: circleci/node:10
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Unit tests
           command: npm run test
@@ -40,12 +39,11 @@ jobs:
 
   e2e_tests:
     docker:
-      - image: circleci/node:10
+      - image: cypress/base:8
+        environment:
+          TERM: xterm
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Cypress e2e tests
           command: npm run cy:run
