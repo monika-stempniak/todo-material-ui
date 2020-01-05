@@ -4,14 +4,10 @@
 
 version: 2
 
-executors:
-  my-executor:
-    docker:
-      - image: circleci/node:lts-alpine
-
 jobs:
   build:
-    executor: my-executor
+    docker:
+      - image: circleci/node:lts-alpine
     steps:
       - checkout
       - restore_cache:
@@ -27,7 +23,8 @@ jobs:
             - node_modules
 
   unit_tests:
-    executor: my-executor
+    docker:
+      - image: circleci/node:lts-alpine
     steps:
       - checkout
       - run:
@@ -40,7 +37,7 @@ jobs:
 
   e2e_tests:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:lts-alpine
     steps:
       - checkout
       - run:
