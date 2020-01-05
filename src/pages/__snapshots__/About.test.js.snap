@@ -7,7 +7,7 @@ exports[`About component matches snapshot 1`] = `
       class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic makeStyles-root-1 MuiAppBar-colorPrimary"
     >
       <div
-        class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthLg"
+        class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthMd"
       >
         <ul
           class="makeStyles-list-2"
@@ -32,6 +32,7 @@ exports[`About component matches snapshot 1`] = `
             <a
               aria-current="page"
               class="makeStyles-link-4 makeStyles-activeLink-5"
+              data-testid="about"
               href="/about"
             >
               <h6
@@ -46,7 +47,7 @@ exports[`About component matches snapshot 1`] = `
     </header>
   </div>
   <div
-    class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthLg"
+    class="MuiContainer-root makeStyles-root-42 MuiContainer-fixed MuiContainer-maxWidthMd"
   >
     <h5
       class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"

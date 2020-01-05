@@ -3,7 +3,7 @@
 exports[`Todos component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root makeStyles-root-3 MuiContainer-fixed MuiContainer-maxWidthLg"
+    class="MuiContainer-root makeStyles-root-3 MuiContainer-fixed MuiContainer-maxWidthMd"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
@@ -24,19 +24,19 @@ exports[`Todos component matches snapshot 1`] = `
             class="MuiFormControl-root MuiTextField-root makeStyles-textField-145 MuiFormControl-marginNormal"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
-              data-shrink="false"
-              for="standard-name"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-focused Mui-focused"
+              data-shrink="true"
+              for="text_field"
             >
               Add todo
             </label>
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-focused Mui-focused MuiInputBase-formControl MuiInput-formControl"
             >
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiInput-input"
-                id="standard-name"
+                id="text_field"
                 type="text"
                 value=""
               />
@@ -64,17 +64,31 @@ exports[`Todos component matches snapshot 1`] = `
         data-testid="todos-list"
       >
         <li
-          class="MuiListItem-root MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-container-238 MuiListItem-gutters"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root makeStyles-completeIcon-240 makeStyles-completeIcon-243"
+            data-testid="completed-delectus-aut-autem"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
           <p
-            class="MuiTypography-root makeStyles-todo-235 makeStyles-todo-238 MuiTypography-body1"
-            data-testid="todo"
+            class="MuiTypography-root makeStyles-todo-239 makeStyles-todo-242 MuiTypography-body1"
+            data-testid="todo-delectus-aut-autem"
+            data-toggle="toggle"
           >
             delectus aut autem
           </p>
           <button
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-checkIcon-236"
-            data-testid="complete"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-deleteIcon-241"
+            data-delete="delete-todo"
+            data-testid="delete-delectus-aut-autem"
             tabindex="0"
             type="button"
           >
@@ -89,7 +103,11 @@ exports[`Todos component matches snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
                 />
               </svg>
             </span>
@@ -99,17 +117,31 @@ exports[`Todos component matches snapshot 1`] = `
           </button>
         </li>
         <li
-          class="MuiListItem-root MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-container-238 MuiListItem-gutters"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root makeStyles-completeIcon-240 makeStyles-completeIcon-274"
+            data-testid="completed-quis-ut-nam-facilis-et-officia-qui"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
           <p
-            class="MuiTypography-root makeStyles-todo-235 makeStyles-todo-268 MuiTypography-body1"
-            data-testid="todo"
+            class="MuiTypography-root makeStyles-todo-239 makeStyles-todo-273 MuiTypography-body1"
+            data-testid="todo-quis-ut-nam-facilis-et-officia-qui"
+            data-toggle="toggle"
           >
             quis ut nam facilis et officia qui
           </p>
           <button
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-checkIcon-236"
-            data-testid="complete"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-deleteIcon-241"
+            data-delete="delete-todo"
+            data-testid="delete-quis-ut-nam-facilis-et-officia-qui"
             tabindex="0"
             type="button"
           >
@@ -124,7 +156,11 @@ exports[`Todos component matches snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
                 />
               </svg>
             </span>
@@ -134,17 +170,31 @@ exports[`Todos component matches snapshot 1`] = `
           </button>
         </li>
         <li
-          class="MuiListItem-root MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-container-238 MuiListItem-gutters"
         >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root makeStyles-completeIcon-240 makeStyles-completeIcon-276"
+            data-testid="completed-fugiat-veniam-minus"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
           <p
-            class="MuiTypography-root makeStyles-todo-235 makeStyles-todo-269 MuiTypography-body1"
-            data-testid="todo"
+            class="MuiTypography-root makeStyles-todo-239 makeStyles-todo-275 MuiTypography-body1"
+            data-testid="todo-fugiat-veniam-minus"
+            data-toggle="toggle"
           >
             fugiat veniam minus
           </p>
           <button
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-checkIcon-236"
-            data-testid="complete"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-deleteIcon-241"
+            data-delete="delete-todo"
+            data-testid="delete-fugiat-veniam-minus"
             tabindex="0"
             type="button"
           >
@@ -159,7 +209,11 @@ exports[`Todos component matches snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
                 />
               </svg>
             </span>
@@ -169,6 +223,81 @@ exports[`Todos component matches snapshot 1`] = `
           </button>
         </li>
       </ul>
+      <footer
+        class="makeStyles-footer-221"
+      >
+        <div
+          class="MuiGrid-root makeStyles-grid-222 MuiGrid-container"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+              data-testid="todo-count"
+            >
+              3 todos left
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root makeStyles-button-223 MuiButton-text"
+              data-testid="all-todos"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                All
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root makeStyles-button-223 MuiButton-text"
+              data-testid="active-todos"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Active
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root makeStyles-button-223 MuiButton-text"
+              data-testid="completed-todos"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Completed
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </DocumentFragment>

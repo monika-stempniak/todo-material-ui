@@ -34,7 +34,7 @@ const Todos = () => {
 
   useEffect(() => {
     const todosData =
-      initialTodos.length > 0 ? initialTodos.splice(0, 5) : initialTodos;
+      initialTodos.length > 5 ? initialTodos.splice(0, 5) : initialTodos;
     setTodos(todosData);
     setFilteredTodos(todosData);
   }, [initialTodos]);

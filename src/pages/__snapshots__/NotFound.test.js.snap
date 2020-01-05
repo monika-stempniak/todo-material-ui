@@ -3,7 +3,7 @@
 exports[`NotFound component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root makeStyles-root-1 MuiContainer-fixed MuiContainer-maxWidthLg"
+    class="MuiContainer-root makeStyles-root-1 MuiContainer-fixed MuiContainer-maxWidthMd"
   >
     <h5
       class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
