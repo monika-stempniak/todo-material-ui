@@ -15,7 +15,7 @@ describe("Todos items", () => {
 
   it("Properly displays completed items", () => {
     cy.get("[data-testid=todos-list] li")
-      .filter("[data-testid=completed]")
+      .filter("[data-completed=completed]")
       .should("have.length", 1)
       .and("contain", item)
       .find(`[data-testid=completed-${test}]`)
@@ -23,20 +23,41 @@ describe("Todos items", () => {
   });
 
   it("Shows remaining todos in the footer", () => {
-    cy.get("[data-testid=todos-left]").should("contain", 3);
+    cy.get("[data-testid=todo-count]").should("contain", 3);
   });
 
-  it.only("Removes a todo", () => {
+  it("Removes a todo", () => {
     cy.get("[data-testid=todos-list] li").as("list");
 
     cy.get("@list")
       .should("have.length", 4)
-      .find(`[data-testid=completed-${test}]`)
+      .find(`[data-testid=delete-${test}]`)
       .should("exist")
       .click();
 
     cy.get("@list")
       .should("have.length", 3)
       .and("not.contain", item);
+  });
+
+  it.only("Marks an incomplete item complete", () => {
+    // cy.fixture("todos").then(todo => {
+    //   const target = Cypress._.head(todo);
+    //   target.completed = true;
+    // });
+
+    cy.get("[data-testid=todos-list] li")
+      .first()
+      .as("first-todo");
+
+    cy.get("@first-todo")
+      .find("[data-toggle=toggle]")
+      .click();
+
+    cy.get("@first-todo")
+      .find("[data-completed=completed]")
+      .should("exist");
+
+    cy.get("[data-testid=todo-count]").should("contain", 2);
   });
 });

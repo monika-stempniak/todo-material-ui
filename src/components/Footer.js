@@ -31,7 +31,7 @@ const Footer = ({
       <Grid container className={classes.grid}>
         <Grid item xs={6}>
           <Typography variant="body1">
-            <span data-testid="todos-left">{numberOfTodosToComplete}</span>{" "}
+            <span data-testid="todo-count">{numberOfTodosToComplete}</span>{" "}
             todos left
           </Typography>
         </Grid>

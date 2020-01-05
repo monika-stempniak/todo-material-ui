@@ -46,9 +46,9 @@ const Todos = () => {
     setFilteredTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const toggleTodo = index => {
     const newTodos = [...todos];
-    newTodos[index].completed = true;
+    newTodos[index].completed = !newTodos[index].completed;
     setTodos(newTodos);
     setFilteredTodos(newTodos);
   };
@@ -93,7 +93,7 @@ const Todos = () => {
                 key={index}
                 index={index}
                 todo={todo}
-                completeTodo={completeTodo}
+                toggleTodo={toggleTodo}
                 deleteTodo={deleteTodo}
               />
             ))}
