@@ -1,22 +1,64 @@
+# https://github.com/CircleCI-Public/circleci-demo-javascript-react-app
+# https://circleci.com/docs/2.0/sample-config/
+# https://circleci.com/docs/2.0/workflows/
+
 version: 2
+
+executors:
+  my-executor:
+    docker:
+      - image: circleci/node:lts-alpine
+
 jobs:
-  one:
-    docker:
-      - image: circleci/ruby:2.4.1
+  build:
+    executor: my-executor
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: sleep 25
-  two:
-    docker:
-      - image: circleci/ruby:2.4.1
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package-lock.json" }}
+            - dependency-cache-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+  unit_tests:
+    executor: my-executor
     steps:
       - checkout
-      - run: echo "A more familiar hi"
-      - run: sleep 15
+      - run:
+          name: Unit tests
+          command: npm run test
+      - store_test_results:
+        path: unit-test-results
+      - store_artifacts:
+          path: unit-test-results
+
+  e2e_tests:
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      - checkout
+      - run:
+          name: Cypress e2e tests
+          command: npm run cy:run
+      - store_test_results:
+          path: e2e-test-results
+      - store_artifacts:
+        path: e2e-test-results
+
 workflows:
   version: 2
-  one_and_two:
+  build_and_tests:
     jobs:
-      - one
-      - two
+      - build
+      - unit_tests:
+          requires:
+            - build
+      - e2e_tests:
+          requires:
+            - build
