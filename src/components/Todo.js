@@ -56,6 +56,7 @@ const Todo = ({ todo, index, toggleTodo, deleteTodo }) => {
         onClick={() => deleteTodo(index)}
         className={classes.deleteIcon}
         data-testid={`delete-${joinWords(title)}`}
+        data-delete="delete-todo"
       >
         <DeleteOutline />
       </IconButton>
