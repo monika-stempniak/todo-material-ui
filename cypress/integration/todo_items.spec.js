@@ -14,10 +14,14 @@ describe("Todos items", () => {
   const test = joinWords(item);
 
   it("Properly displays completed items", () => {
-    cy.get("[data-testid=todos-list] li")
-      .filter("[data-completed=completed]")
+    cy.get("[data-testid=todos-list] li").as("item");
+
+    cy.get("@item")
+      .find("[data-completed=completed]")
       .should("have.length", 1)
-      .and("contain", item)
+      .and("contain", item);
+
+    cy.get("@item")
       .find(`[data-testid=completed-${test}]`)
       .should("exist");
   });
