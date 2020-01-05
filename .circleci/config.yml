@@ -52,7 +52,7 @@ jobs:
             - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Cypress e2e tests
-          command: npm run cy:run
+          command: $(npm bin)/cypress run
       - store_test_results:
           path: e2e-test-results
       - store_artifacts:
