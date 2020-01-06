@@ -38,6 +38,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "package-lock.json" }}
+            - dependency-cache-
       - run:
           name: Unit tests
           command: npm run test
@@ -54,6 +55,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "package-lock.json" }}
+            - dependency-cache-
       - run:
           name: Install dependencies
           command: npm ci
