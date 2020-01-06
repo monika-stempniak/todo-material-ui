@@ -2,6 +2,11 @@
 # https://circleci.com/docs/2.0/sample-config/
 # https://circleci.com/docs/2.0/workflows/
 
+# version 2.1 + orbs
+# https://circleci.com/orbs/registry/orb/cypress-io/cypress
+# https://circleci.com/orbs/registry/orb/thefrontside/react
+# https://github.com/jeanbauer/cra-rtl-cypress-circleci
+
 version: 2
 
 jobs:
@@ -57,6 +62,9 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
+      - run:
+          name: Run local server
+          command: npm run start
       - run:
           name: Cypress e2e tests
           command: npm run cy:run
