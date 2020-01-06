@@ -26,8 +26,8 @@ jobs:
             - ~/.cache
 
   unit_tests:
-    # docker:
-    #   - image: circleci/node:10
+    docker:
+      - image: circleci/node:10
     steps:
       - checkout
       - restore_cache:
@@ -42,9 +42,8 @@ jobs:
           path: unit-test-results
 
   e2e_tests:
-    # docker:
-    #   - image: circleci/node:10
-    #   - image: cypress/base:10
+    docker:
+      - image: cypress/base:10
     steps:
       - checkout
       - restore_cache:
