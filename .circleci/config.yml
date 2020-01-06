@@ -40,6 +40,9 @@ jobs:
             - dependency-cache-{{ checksum "package-lock.json" }}
             - dependency-cache-
       - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
           name: Unit tests
           command: npm run test
       - store_test_results:
