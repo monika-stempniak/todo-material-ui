@@ -63,11 +63,8 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run:
-          name: Run local server
-          command: npm run start
-      - run:
           name: Cypress e2e tests
-          command: npm run cy:run
+          command: npm run cy:test
       - store_test_results:
           path: e2e-test-results
       - store_artifacts:
