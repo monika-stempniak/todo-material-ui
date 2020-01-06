@@ -29,9 +29,44 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
+
+  unit_tests:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package-lock.json" }}
+            - dependency-cache-
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
       - run:
           name: Unit tests
           command: npm run test
+
+  e2e_tests:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package-lock.json" }}
+            - dependency-cache-
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
       - run:
           name: Cypress e2e tests
           command: npm run cy:test
@@ -41,3 +76,9 @@ workflows:
   build_and_tests:
     jobs:
       - build
+      - unit_tests:
+          requires:
+            - build
+      - e2e_tests:
+          requires:
+            - build
